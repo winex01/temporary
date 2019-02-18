@@ -1,3 +1,5 @@
+<div id ="info"  ></div>
+
 <div class="row">
 	<div class="col-lg-6 col-md-6">
 		
@@ -13,3 +15,4 @@
 	</div><!-- /.col-lg-6 -->
 	<div class="col-lg-6 col-md-6"></div><!-- /.col-lg-6 -->
 </div><!-- /.row -->
+
