@@ -3,7 +3,7 @@
 <?php if ( isset($_SESSION['change_password']) && $_SESSION['change_password'] ): ?>
 	<div class="alert alert-success">
 		<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-		<strong>Success</strong> Change password successfully!
+		<strong>Success!</strong> Change password successfully!
 	</div>
 <?php unset($_SESSION['change_password']) ?>
 <?php endif; ?>
