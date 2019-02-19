@@ -7,7 +7,9 @@ if(session_status() == PHP_SESSION_NONE)//php 5.5 above only lower version not w
 
 require_once('database/Database.php');//database 
 require_once('class/Movie.php'); 
+require_once('class/User.php'); 
 
 $movies = new Movie();
+$user = new User();
 
  ?>

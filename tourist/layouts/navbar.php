@@ -30,6 +30,7 @@
 			        <a class="dropdown-toggle" data-toggle="dropdown" style="font-family:Helvetica;" href="#"><?php echo $_SESSION['usr']; ?>
 			        <span class="caret"></span></a>
 			        <ul class="dropdown-menu">
+			          <li><a data-toggle="modal" href='#modal-change-pass' style="font-family:Helvetica;">Change Password</a></li>
 			          <li><a href="../userlogout.php" style="font-family:Helvetica;">Log-out</a></li>
 			        </ul>
 		      	</li>
@@ -42,3 +43,58 @@
 	<br/>
 	<br/>
 	<br/>
+
+<?php 
+	$change_password = null;
+	if ( isset($_POST['new']) && isset($_POST['confirm']) ) {
+		$new = $_POST['new'];
+		$confirm = $_POST['confirm'];
+
+		if ($new == $confirm) {
+			$change_password = $user->new_password($confirm);
+		}
+	}
+ ?>
+
+<div class="modal fade" id="modal-change-pass">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+				<h4 class="modal-title">Change Password</h4>
+			</div>
+			<div class="modal-body">
+				 
+				<?php if ( isset($_POST['new']) && $new != $confirm ): ?>
+				 <div class="alert alert-danger">
+				 	<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+				 	<strong>Warning!</strong> Password not match.
+				 </div>
+				<?php endif; ?>
+
+				<form class="form-horizontal" method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>">
+				  <div class="form-group">
+				    <label class="control-label col-sm-3" for="new">New:</label>
+				    <div class="col-sm-9"> 
+				      <input type="password" class="form-control" id="new" name="new" placeholder="Enter password" required>
+				    </div>
+				  </div>
+
+				  <div class="form-group">
+				    <label class="control-label col-sm-3" for="confirm">Confirm:</label>
+				    <div class="col-sm-9"> 
+				      <input type="password" class="form-control" id="confirm" name="confirm" placeholder="Confirm password" required>
+				    </div>
+				  </div>
+				  
+				  <div class="form-group"> 
+				    <div class="col-sm-offset-3 col-sm-9">
+				      <button type="submit" class="btn btn-info
+				      ">Save</button>
+				    </div>
+				  </div>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>

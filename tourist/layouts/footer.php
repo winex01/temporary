@@ -53,4 +53,10 @@
 	    $('#myTable').dataTable();
 	});
 
+
+	<?php if ( isset($new) ): ?>
+		<?php if ($new != $confirm): ?>
+			$('#modal-change-pass').modal();
+		<?php endif; ?>
+	<?php endif; ?>
 </script>
