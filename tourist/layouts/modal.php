@@ -43,7 +43,7 @@
 										<h4>---RESERVATION---</h4>
 										<strong>Date of Reservation: </strong>&nbsp;
 										<br/> 
-										<input class="btn-default" id="rdate<?php echo $b_id; ?>" size="30" name="rdate" type="date" autocomplete="off">
+										<input class="btn-default" min="<?= date("Y-m-d") ?>" id="rdate<?php echo $b_id; ?>" size="30" name="rdate" type="date" autocomplete="off">
 										<br/>
 										<strong>Time: </strong>
 										<br/>

@@ -12,4 +12,13 @@ require_once('class/User.php');
 $movies = new Movie();
 $user = new User();
 
- ?>
+
+
+function alert_msg($type, $title, $msg) {
+	echo '
+		<div class="alert alert-'.$type.'">
+		  <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+		  <strong>'.$title.'!</strong> '.$msg.'.
+		</div>
+	';
+}

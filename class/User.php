@@ -156,5 +156,18 @@ class User extends Database{
         echo '<pre>';
             var_dump($param);
         echo '</pre>';
+    }
+
+    public function reservation_limit()
+    {
+        $sql = "SELECT COUNT(tour_id) as max_count FROM reservation WHERE tour_id = ?";
+
+        $query = $this->getRow($sql, [$_SESSION['tourID']]);
+        
+        if ($query['max_count'] >= 3) {
+            return true;
+        }
+
+        return false;
     }    
 }
