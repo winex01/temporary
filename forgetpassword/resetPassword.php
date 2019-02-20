@@ -1,7 +1,7 @@
 <?php
 include_once('../config.php');
   
-  if (  !isset($_GET['token']) || !isset($_GET['token_p']) || !isset($_GET['coffee']) || !$user->verify_recovery_token($_GET['token'], $_GET['token_p']) ) {
+  if (  !isset($_GET['token']) || !isset($_GET['token_p']) || !isset($_GET['coffee']) ) {
      echo '<h1>Not Found</h1>';
      echo 'The requested URL was not found on this server.';
      die;
