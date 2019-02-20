@@ -17,6 +17,12 @@ $db = new Database();
 			exit;
 		}
 
+		// can only book today and next following days
+		if (strtotime($date) < strtotime('now')) {
+			alert_msg('danger', 'Warning', 'Invalid date');
+			exit;	
+		}
+
 		if(!$ampm){
 			echo '
 				<div class="alert alert-danger">
