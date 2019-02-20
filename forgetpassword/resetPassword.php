@@ -1,7 +1,7 @@
 <?php
 include_once('../config.php');
   
-  if (  !isset($_GET['token']) || !isset($_GET['token_p']) || !$user->verify_recovery_token($_GET['token'], $_GET['token_p'])) {
+  if (  !isset($_GET['token']) || !isset($_GET['token_p']) || !isset($_GET['coffee']) || !$user->verify_recovery_token($_GET['token'], $_GET['token_p']) ) {
      echo '<h1>Not Found</h1>';
      echo 'The requested URL was not found on this server.';
      die;
@@ -19,7 +19,7 @@ include_once('../config.php');
       if ($password != $confirmPassword) {
           $error_message = "Password not matched";
       }else {
-          $user->save_password($password);
+          $user->save_password($password, $_GET['coffee']);
           $success_message = "Password reset successfully.<br>Now you are redirecting";
           header("Refresh:3; url=../userlogin.php");
       }

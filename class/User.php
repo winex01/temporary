@@ -74,13 +74,12 @@ class User extends Database{
         return false;
     }
 
-    public function save_password($password)
+    public function save_password($password, $tour_id)
     {
-        if (empty($password) || !isset($_SESSION['tour_id'])) {
+        if (empty($password) || empty($tour_id)) {
             return;
         }
 
-        $tour_id = $_SESSION['tour_id'];         
         $password = md5($password);
 
         $sql = "UPDATE $this->table
@@ -104,8 +103,9 @@ class User extends Database{
 
         $password = $query['password'];
         $md5_email = md5($email);
+        $id = $query['tour_id'];
 
-        $link = $_SERVER['SERVER_NAME']."/forgetpassword/resetPassword.php?token_p=$password&token=$md5_email";
+        $link = $_SERVER['SERVER_NAME']."/forgetpassword/resetPassword.php?token_p=$password&coffee=$id&token=$md5_email";
 
 
         try {
