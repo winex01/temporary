@@ -37,8 +37,8 @@
 										<strong>Cast: </strong><?php echo $actor; ?> <br />
 										<strong>Date Added: </strong><?php echo $dateadded; ?> <br />
 										<strong>Date Released: </strong><?php echo $datereleased; ?> <br />
-										<?php echo $youtubelink; ?>
-							   
+
+										<?= $youtubelink ?>
 												      				
 										<h4>---RESERVATION---</h4>
 										<strong>Date of Reservation: </strong>&nbsp;

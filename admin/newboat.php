@@ -1,17 +1,5 @@
-<!DOCTYPE html>
-<html lang="">
-	<head>
-		<meta charset="utf-8">
-		<meta http-equiv="X-UA-Compatible" content="IE=edge">
-		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<title>Admin Panel</title>
-		<link rel="icon" href="websiteicon.png"/>
-
-		<!-- Bootstrap CSS -->
-		<link rel="stylesheet" type="text/css" href="../bootstrap/css/bootstrap.css">
-		<link rel="stylesheet" type="text/css" href="../bootstrap/css/jquery.dataTables.css">
-
-	</head>
+<?php require_once('../config.php') ?>
+<?php require_once('layouts/header.php') ?>
 
 	<style type="text/css">
 		.navbar { margin-bottom:0px !important; }
@@ -24,47 +12,7 @@
 		<br />
 		<br />
 	
-		<!-- begin whole content -->
-			<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
-				<div class="container-fluid">
-					<!-- Brand and toggle get grouped for better mobile display -->
-					<div class="navbar-header">
-						<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
-							<span class="sr-only">Toggle navigation</span>
-							<span class="icon-bar"></span>
-							<span class="icon-bar"></span>
-							<span class="icon-bar"></span>
-						</button>
-						<img src="../img/boatlogo.png" height="50" width="50"> &nbsp;
-					</div>
-			
-					<!-- Collect the nav links, forms, and other content for toggling -->
-					<div class="collapse navbar-collapse navbar-ex1-collapse">
-						<ul class="nav navbar-nav">
-							<li><a href="#" style="font-family: Times New Roman; font-size: 30px;">Admin Panel</a></li>
-						</ul>
-
-						<ul class="nav navbar-nav" style="font-family: Times New Roman;">
-							<li class="active">
-								<a href="index.php">Home</a>
-							</li>
-							<li>
-								<a href="reservation.php">Reservation</a>
-							</li>
-							<li>
-								<a href="../adminlogout.php">Log-out</a>
-							</li>
-						</ul>
-						
-						<ul class="nav navbar-nav navbar-right" style="font-family: Times New Roman;">
-							
-						
-						</ul>
-					</div><!-- /.navbar-collapse -->
-				</div>
-			</nav>
-		<!-- end -->
-
+		<?php require_once('layouts/navbar.php') ?>
 		<br />
 
 		
@@ -211,11 +159,6 @@
 		<!-- main cntent -->
 
 
-
- 		<script src="../bootstrap/js/jquery-1.11.1.min.js"></script>
- 		<script src="../bootstrap/js/dataTables.js"></script>
- 		<script src="../bootstrap/js/dataTables2.js"></script>
- 		<script src="../bootstrap/js/bootstrap.js"></script>
-
+		<?php require_once('layouts/footer.php') ?>
 	</body>
 </html>
