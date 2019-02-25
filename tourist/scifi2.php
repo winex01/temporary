@@ -16,23 +16,7 @@
 		$res = $movies->get_movies($params, 'sci-fi');
 	?>
 
-	<?php if ($res): ?>
-		<?php foreach ($res as $r): ?>
-			<?php 
-				$b_id = $r['b_id'];
-		  		$bImage = $r['b_img'];
-			 ?>
-			 <center>
-			 	<div class="col-lg-3 col-md-4 col-sm-6">
-					<a href="#"  data-toggle="modal" data-target="#myModal<?php echo $b_id; ?>">
-						<img class="img-rounded" src="<?php echo $bImage;?>" height="350" width="350">
-		  			</a>
-			 	</div>
-			 </center>
-		<?php endforeach; ?>
-	<?php else: ?>
-		No result.
-	<?php endif; ?>
+	<?php require_once('layouts/movies.php') ?>
 </div>
 
 <?php include_once('layouts/modal.php') ?>

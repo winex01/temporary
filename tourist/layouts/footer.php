@@ -1,9 +1,5 @@
 	<script src="../bootstrap/js/jquery-1.11.1.min.js"></script>
-	<!-- <script src="../bootstrap/js/dataTables.js"></script> -->
-	<!-- <script src="../bootstrap/js/dataTables2.js"></script> -->
 	<script src="../bootstrap/js/bootstrap.js"></script>
- 		<!--pagination-->
-    <!-- <link rel="stylesheet" href="../bootstrap/css/jquery.dataTables.css"><!--searh box positioning--> -->
     <script src="../bootstrap/js/jquery.dataTables2.js"></script>
 
 <script type="text/javascript">
