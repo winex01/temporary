@@ -3,9 +3,7 @@
 
 		
 <div class="container-fluid">
-	<div class="well">
-		<h3>NEWLY RELEASED MOVIES!</h3>
-	</div>
+	
 
 	<!-- search box -->
 	<?php require_once('layouts/search.php') ?>

@@ -13,12 +13,12 @@ $db = new Database();
 
 		// max reservation
 		if ($user->reservation_limit()) {
-			alert_msg('danger', 'Warning', 'You can only reserved 3 times at the same time');
+			alert_msg('danger', 'Notification:', 'You can only reserve 3x');
 			exit;
 		}
 
 		// can only book today and next following days
-		if (strtotime($date) < strtotime('now')) {
+		if (strtotime($date) < strtotime(date('Y-m-d')) ) {
 			alert_msg('danger', 'Warning', 'Invalid date');
 			exit;	
 		}

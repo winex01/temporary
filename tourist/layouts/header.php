@@ -12,9 +12,13 @@
 		<!-- Bootstrap CSS -->
 		<link rel="icon" href="../websiteicon.png"/>
 		<link rel="stylesheet" type="text/css" href="../bootstrap/css/bootstrap.css">
-		<link rel="stylesheet" type="text/css" href="../bootstrap/css/jquery.dataTables.css">
+		<!-- <link rel="stylesheet" type="text/css" href="../bootstrap/css/jquery.dataTables.css"> -->
 		<link rel="stylesheet" href="../bootstrap/css/jquery.dataTables.css"><!--searh box positioning-->
-	    <script src="../bootstrap/	js/jquery.dataTables2.js"></script>
+	    <!-- <script src="../bootstrap/	js/jquery.dataTables2.js"></script> -->
+
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	
+		<link rel="stylesheet" type="text/css" href="../css/notification.css">
 	</head>
 
 	<style type="text/css">

@@ -26,11 +26,15 @@
 				<li><a href="scifi2.php"style="font-family:Helvetica;">Sci-Fi</a></li>
 		     	<li><a href="comedy2.php"style="font-family:Helvetica;">Comedy</a></li>
 
+		     	<?php require_once('layouts/notification.php') ?>
+
 				<li class="dropdown">
 			        <a class="dropdown-toggle" data-toggle="dropdown" style="font-family:Helvetica;" href="#"><?php echo $_SESSION['usr']; ?>
 			        <span class="caret"></span></a>
 			        <ul class="dropdown-menu">
 			          <li><a data-toggle="modal" href='#modal-change-pass' style="font-family:Helvetica;">Change Password</a></li>
+			          <li><a href="../convertpdf/index.php" style="font-family:Helvetica;">PDF Movie List</a></li>
+			      	<li><a href="../convertexcel/index.php" style="font-family:Helvetica;">Excel Movie List</a></li>
 			          <li><a href="../userlogout.php" style="font-family:Helvetica;">Log-out</a></li>
 			        </ul>
 		      	</li>
@@ -68,7 +72,7 @@
 				<?php if ( isset($_POST['new']) && $new != $confirm ): ?>
 				 <div class="alert alert-danger">
 				 	<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-				 	<strong>Warning!</strong> Password not match.
+				 	<strong>Notification:</strong> Password does not match,try again.
 				 </div>
 				<?php endif; ?>
 
@@ -76,14 +80,14 @@
 				  <div class="form-group">
 				    <label class="control-label col-sm-3" for="new">New:</label>
 				    <div class="col-sm-9"> 
-				      <input type="password" class="form-control" id="new" name="new" placeholder="Enter password" required>
+				      <input type="password" minlength="8" maxlength="18" class="form-control" id="new" name="new" placeholder="Enter password" required>
 				    </div>
 				  </div>
 
 				  <div class="form-group">
 				    <label class="control-label col-sm-3" for="confirm">Confirm:</label>
 				    <div class="col-sm-9"> 
-				      <input type="password" class="form-control" id="confirm" name="confirm" placeholder="Confirm password" required>
+				      <input type="password"  minlength="8" maxlength="18"class="form-control" id="confirm" name="confirm" placeholder="Confirm password" required>
 				    </div>
 				  </div>
 				  
