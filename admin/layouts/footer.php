@@ -16,4 +16,20 @@
 	    return this.href == url;
 	}).parent().addClass('active');
 	// end active class
+
+	function read_admin_notification() {
+		$.ajax({
+			url: 'read_admin_notification.php',
+			type: 'post',
+			dataType: 'json',
+			// data: {param1: 'value1'},
+		})
+		.done(function(response) {
+			// console.log(response);
+			if (response) {
+				$('#badge-notif').hide();
+			}
+		});
+		
+	}
 </script>

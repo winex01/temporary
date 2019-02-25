@@ -1,9 +1,10 @@
 <?php 
-	include_once('../config.php');//database
-	include_once('layouts/header.php'); 
-	include_once('layouts/navbar.php');
+	require_once('../config.php');//database
+	require_once('layouts/header.php'); 
+	require_once('layouts/navbar.php');
 	
 	$db = new Database();
+	$notification = new Notification();
 ?>
 
  <div class="container">
@@ -17,6 +18,8 @@
 				$delrid = $_GET['delr_id'];
 				$tid = $_SESSION['tourID'];
 
+				$notification->insert_admin($delrid, 'cancelled');
+
 				$sql = "DELETE FROM reservation WHERE tour_id = ? AND r_id = ?";
 				$res = $db->deleteRow($sql, [$tid, $delrid]);
 
@@ -26,7 +29,6 @@
 							  <strong>Notification:</strong> Reservation has been cancelled.
 							</div>
 						';
-						// header('Location: myreservation.php');
 			}
 		 ?>
 

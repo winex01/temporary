@@ -29,6 +29,11 @@
 				<li>
 					<a href="reservation.php"style="font-family:Helvetica;">&nbsp &nbsp View Reservations</a>
 				</li>
+
+				<li>
+					<a href="viewsuggestions.php"style="font-family:Helvetica;">&nbsp &nbsp View Suggestions</a>
+				</li>
+
 				<li>
 					<a href="manageusers.php"style="font-family:Helvetica;">&nbsp &nbsp Manage Users</a>
 				</li>
@@ -37,7 +42,7 @@
 					<a href="../chatsupport/index.php"style="font-family:Helvetica;">&nbsp &nbsp Live Support</a>
 				</li>
 
-				<?php //require_once('layouts/notification.php') ?>
+				<?php require_once('layouts/notification.php') ?>
 
 				<li class="dropdown">
 			        <a class="dropdown-toggle" data-toggle="dropdown" style="font-family:Helvetica;" href="#"><?php echo $_SESSION['usr']; ?>

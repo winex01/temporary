@@ -63,12 +63,18 @@ $db = new Database();
 												VALUES (?,?,?,?,?) ";
 				$res = $db->insertRow($sql, [$hr, $ampm, $bid, $tid, $date]);
 
+				if ($res) {
+
+					// insert to admin notification
+					$notification->insert_admin($db->lastID());
+
 					echo '
 					<div class="alert alert-success">
 					 <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
 				  <strong>Success!</strong> Reserved Successfully.
 					</div>
 						';
+				}
 			}
 		}
 	}
