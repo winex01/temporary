@@ -28,6 +28,12 @@ function dd($param) {
     die;
 }
 
+function dump($param) {
+    echo '<pre>';
+        var_dump($param);
+    echo '</pre>';
+}
+
 
 
 $notification = new Notification();

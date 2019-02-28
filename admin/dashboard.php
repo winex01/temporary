@@ -139,12 +139,147 @@
 	          </a>
 	        </div>
 	      </div>
-
-
 	    </div><!-- /.row -->
+    
+	    <div class="row">
+	    	<div class="col-md-6">
+	    		<div id="reservation"></div>
+	    	</div>
+	    	<div class="col-md-6">
+	    		<div id="genre"></div>
+	    	</div>
+	    </div>
+
+	    <div class="row">
+    		<div id="top_x_div2"></div>
+	    </div>
+
+	    <div style="margin-bottom: 100px;"></div>
+
+	    <div class="row">
+			<div id="top_x_div"></div>
+	    </div>
     </div>
 
+
+    <div style="margin-bottom: 200px;"></div>
+
+
+<?php //dump($user->reservations()) ?>
+
 <?php require_once('layouts/footer.php') ?>
+
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+<script type="text/javascript">
+// Load google charts
+google.charts.load('current', {'packages':['corechart']});
+google.charts.setOnLoadCallback(drawChart);
+
+// Draw the chart and set the chart values
+function drawChart() {
+  var data = google.visualization.arrayToDataTable([
+  ['Movies', 'Genre'],
+  <?php foreach($movies->genres()  as $key => $data): ?>
+  	['<?= $key ?>', <?= $data ?>],
+  <?php endforeach; ?>
+]);
+
+  // Optional; add a title and set the width and height of the chart
+  var options = {'title':'Movie\'s Genre', 'width':550, 'height':400};
+
+  // Display the chart inside the <div> element with id="piechart"
+  var chart = new google.visualization.PieChart(document.getElementById('genre'));
+  chart.draw(data, options);
+}
+
+
+
+
+// Load google charts
+google.charts.load('current', {'packages':['corechart']});
+google.charts.setOnLoadCallback(drawChart2);
+
+function drawChart2() {
+  var data = google.visualization.arrayToDataTable([
+  ['Users', 'Reservation'],
+  <?php foreach($user->reservations()  as $key => $data): ?>
+  	['<?= $key ?>', <?= $data ?>],
+  <?php endforeach; ?>
+]);
+
+  // Optional; add a title and set the width and height of the chart
+  var options = {'title':'User\'s Reservation', 'width':550, 'height':400};
+
+  // Display the chart inside the <div> element with id="piechart"
+  var chart = new google.visualization.PieChart(document.getElementById('reservation'));
+  chart.draw(data, options);
+}
+
+
+// bar movies genre
+google.charts.load('current', {'packages':['bar']});
+google.charts.setOnLoadCallback(drawStuff);
+
+function drawStuff() {
+var data = new google.visualization.arrayToDataTable([
+  ['Movies', 'Genre'],
+  <?php foreach($movies->genres()  as $key => $data): ?>
+  	['<?= $key ?>', <?= $data ?>],
+  <?php endforeach; ?>
+]);
+
+var options = {
+  title: 'Movie\'s Genre',
+  height: 500,
+  legend: { position: 'none' },
+  chart: { title: 'Movie\'s Genre',
+           subtitle: 'popularity by percentage' },
+  bars: 'horizontal', // Required for Material Bar Charts.
+  axes: {
+    x: {
+      0: { side: 'top', label: 'Percentage'} // Top x-axis.
+    }
+  },
+  bar: { groupWidth: "90%" }
+};
+
+var chart = new google.charts.Bar(document.getElementById('top_x_div'));
+chart.draw(data, options);
+};
+
+
+google.charts.load('current', {'packages':['bar']});
+google.charts.setOnLoadCallback(drawStuff2);
+
+
+// bar users reservation
+function drawStuff2() {
+var data = new google.visualization.arrayToDataTable([
+  ['Users', 'Reservation'],
+  <?php foreach($user->reservations()  as $key => $data): ?>
+  	['<?= $key ?>', <?= $data ?>],
+  <?php endforeach; ?>
+]);
+
+var options = {
+  title: 'User\'s Reservation',
+  height: 500,
+  legend: { position: 'none' },
+  chart: { title: 'User\'s Reservation',
+           subtitle: 'popularity by percentage' },
+  bars: 'horizontal', // Required for Material Bar Charts.
+  axes: {
+    x: {
+      0: { side: 'top', label: 'Percentage'} // Top x-axis.
+    }
+  },
+  bar: { groupWidth: "90%" }
+};
+
+var chart = new google.charts.Bar(document.getElementById('top_x_div2'));
+chart.draw(data, options);
+};
+</script>
 
 </body>
 </html>

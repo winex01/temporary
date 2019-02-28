@@ -44,6 +44,41 @@ class Movie extends Database{
 
         return $this->getRows($sql, $params);
     }
+
+    public function genres()
+    {
+        $query = $this->getRows("
+            SELECT genre FROM movie
+        ");
+
+        if (empty($query)){
+            return;
+        }
+
+        $data = [];
+
+        foreach($query as $genre) {
+            $temp = explode(' ', $genre['genre']);
+            
+            foreach ($temp as $t) {
+                $t = strtolower($t);
+                $t = ucwords($t);
+
+                if (!in_array($t, $data)) {
+                    $count = $this->getRow("
+                        SELECT count(*) as total 
+                        FROM movie
+                        WHERE genre LIKE '%$t%'
+                    ");
+
+                    $data[$t] = $count['total'];
+                }
+            }
+        }
+
+        return $data;
+
+    }
     
 
 }

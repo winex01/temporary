@@ -163,5 +163,43 @@ class User extends Database{
         }
 
         return false;
-    }    
+    }  
+
+
+    public function reservations()
+    {
+        $query = $this->getRows("
+            SELECT genre FROM movie
+        ");
+
+        if (empty($query)){
+            return;
+        }
+
+        $data = [];
+
+        foreach($query as $genre) {
+            $temp = explode(' ', $genre['genre']);
+            
+            foreach ($temp as $t) {
+                $t = strtolower($t);
+                $t = ucwords($t);
+
+                if (!in_array($t, $data)) {
+                    $count = $this->getRow("
+                        SELECT count(reservation.b_id) as total 
+                        FROM reservation
+                        INNER JOIN movie 
+                        ON reservation.b_id = movie.b_id
+                        WHERE movie.genre LIKE '%$t%'
+                    ");
+
+                    $data[$t] = $count['total'];
+                }
+            }
+        }
+
+        return $data;
+
+    }  
 }
