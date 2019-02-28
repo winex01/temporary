@@ -12,6 +12,10 @@ class Notification extends Database{
 
     public function insert($movie,$genre,$director, $img, $price,$actor, $type = 'added')
     {
+        if ($type == 'admin') {
+            $type = 'Your reservation was canceled by admin. - ';
+        }
+
         $data = [
             $movie, $genre, $director, $img, $price, $actor, $type
         ];
@@ -20,6 +24,41 @@ class Notification extends Database{
             INSERT INTO notifications (moviename, genre, director, b_img, b_price, actor, type)
             VALUES(?,?,?,?,?,?,?)
         ", $data);
+    }
+
+    public function admin_to_user($r_id)
+    {
+        if (empty($r_id)) {
+            return;
+        }
+
+        $sql = "
+                SELECT moviename, tour_un as user, b_img as img, movie.*
+                FROM reservation
+                INNER JOIN movie
+                ON reservation.b_id = movie.b_id
+                INNER JOIN user 
+                ON reservation.tour_id = user.tour_id
+                WHERE reservation.r_id = ?
+        ";
+
+        $query = $this->getRow($sql, [$r_id]);
+
+        if (empty($query)){
+            return;
+        }
+
+        // public function insert($movie,$genre,$director, $img, $price,$actor, $type = 'added')
+        // $notification->insert($bN,$bC,$bON, $new_image_name,$bPrice,$actor,'added');
+        return $this->insert(
+            $query['moviename'],
+            $query['genre'],
+            $query['director'],
+            $query['b_img'],
+            $query['b_price'],
+            $query['actor'],
+            'admin'
+        );
     }
 
     public function insert_delete_movie($b_id)

@@ -18,9 +18,7 @@
 			</ul>
 
 			<ul class="nav navbar-nav" style="font-family:Helvetica;">
-			     <li>
-					<a href="../dash.php"style="font-family:Helvetica;">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp Back to Menu</a>
-				</li>
+			    
 
 				<li>
 					<a href="index.php" style="font-family:Helvetica;">Movie List</a>
@@ -35,7 +33,7 @@
 				</li>
 
 				<li>
-					<a href="manageusers.php"style="font-family:Helvetica;">&nbsp &nbsp Manage Users</a>
+					<a href="manageusers.php"style="font-family:Helvetica;">&nbsp &nbsp View Users</a>
 				</li>
 			
 				<li>

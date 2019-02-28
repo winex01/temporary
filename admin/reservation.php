@@ -38,6 +38,8 @@
 			if(isset($_GET['delr_id']) && isset($_GET['confirm'])){
 				$delrid = $_GET['delr_id'];
 
+				$notification->admin_to_user($delrid);
+
 				$sql = "DELETE FROM reservation WHERE r_id = ?";
 				$res = $db->deleteRow($sql, [$delrid]);
 
