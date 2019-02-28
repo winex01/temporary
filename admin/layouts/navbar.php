@@ -19,6 +19,9 @@
 
 			<ul class="nav navbar-nav" style="font-family:Helvetica;">
 			    
+				<li>
+					<a href="dashboard.php" style="font-family:Helvetica;">Dashboard</a>
+				</li>
 
 				<li>
 					<a href="index.php" style="font-family:Helvetica;">Movie List</a>
