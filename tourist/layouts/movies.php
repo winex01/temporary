@@ -1,3 +1,5 @@
+<?php require_once('layouts/pagination.php'); ?>
+
 <?php if ($res): ?>
 	<?php foreach ($res as $r): ?>
 		<?php 
@@ -19,3 +21,17 @@
 <?php else: ?>
 	No result.
 <?php endif; ?>
+
+</div>
+<!-- end of container-fluid -->
+
+
+
+<div class="container-fluid">
+  <div class="row">
+    <center>
+      <?php $pagination->labels('Previous', 'Next'); ?>
+      <?php $pagination->render(); ?>
+    </center>
+  </div>
+</div>
